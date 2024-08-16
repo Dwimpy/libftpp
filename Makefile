@@ -1,6 +1,6 @@
 # Variables
 CC = c++
-CFLAGS = -std=c++17 -Wall -Werror -Wextra
+CFLAGS = -std=c++17 #-Wall -Werror -Wextra
 AR = ar rcs
 RM = rm -rf
 
@@ -28,10 +28,10 @@ LDL_FLAGS = -L. -lftpp
 SRCS = $(shell find $(COMP_DIR) -name "*.cpp")
 OBJS = $(OBJ_DIR)/$(notdir $(SRCS:.cpp=.o))
 
-all: $(NAME) $(MAIN_OBJ)
+all: $(NAME) $(MAIN_OBJ) test
 
 $(NAME): $(OBJ_DIR) $(OBJS)
-	@$(AR) $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 	@echo $(NAME) built
 
 $(OBJ_DIR)/%.o: $(COMP_DIR)/%/*.cpp
